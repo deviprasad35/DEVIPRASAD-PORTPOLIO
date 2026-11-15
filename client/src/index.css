@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* ── Samarkan custom font (hero name only) ─────────────────────────────── */
+@font-face {
+  font-family: "Samarkan";
+  src: url("./assets/fonts/Samarkan.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Float keyframe for hero avatar hover ──────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: scale(1.05) translateY(0); }
+  50%       { transform: scale(1.05) translateY(-8px); }
+}
+
+/* ── Phone float animations for Projects section ───────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes float-a {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(8px, -10px); }
+  }
+  @keyframes float-b {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-6px, 10px); }
+  }
+  @keyframes float-c {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-8px, -8px); }
+  }
+  .phone-float-a { animation: float-a 6s   ease-in-out infinite; }
+  .phone-float-b { animation: float-b 7.5s ease-in-out infinite -2s; }
+  .phone-float-c { animation: float-c 9s   ease-in-out infinite -4s; }
+}
+
+/* ── Base / Global Styles ──────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Skip-to-main-content link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  background: #7c3aed;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Scrollbar styling ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b1fa8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* ── Focus ring override ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────── */
+::selection {
+  background: #7c3aed40;
+  color: #f8fafc;
+}
